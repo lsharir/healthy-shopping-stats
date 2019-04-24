@@ -1,0 +1,14 @@
+<section>
+  <ngx-charts-bar-vertical
+    [view]="view | async"
+    [scheme]="colorScheme"
+    [results]="usersCount | async"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Users Type'"
+    [yAxisLabel]="'Count'">
+  </ngx-charts-bar-vertical>
+</section>
