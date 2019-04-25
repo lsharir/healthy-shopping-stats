@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod --aot --base-href \"https://lsharir.github.io/healthy-shopping-stats/\" && angular-cli-ghpages -d dist/healthy-shopping-stats/"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@swimlane/ngx-charts": "^10.1.0",
+    "angular-cli-ghpages": "^0.5.3",
     "core-js": "^2.5.4",
     "firebase": "^5.10.0",
     "rxjs": "~6.3.3",

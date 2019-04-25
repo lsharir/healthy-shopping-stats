@@ -10,11 +10,15 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UserCountComponent } from './views/user-count/user-count.component';
+import { HomeComponent } from './views/home/home.component';
+import { UserEngagementComponent } from './views/user-engagement/user-engagement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCountComponent
+    UserCountComponent,
+    HomeComponent,
+    UserEngagementComponent
   ],
   imports: [
     BrowserModule,

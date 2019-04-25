@@ -1,10 +1,10 @@
-<section>
+<section class="view">
   <ngx-charts-bar-vertical
     [view]="view | async"
     [scheme]="colorScheme"
     [results]="usersCount | async"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
+    [xAxis]="true"
+    [yAxis]="true"
     [legend]="true"
     [showXAxisLabel]="true"
     [showYAxisLabel]="true"

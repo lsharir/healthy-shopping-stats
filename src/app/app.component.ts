@@ -1,7 +1,6 @@
 import { DataService } from "./data.service";
 import { Component } from "@angular/core";
-import { Observable } from "rxjs";
-import { UsersCount } from "./models";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-root",
@@ -12,7 +11,9 @@ import { UsersCount } from "./models";
       </mat-toolbar-row>
 
       <mat-toolbar-row>
-        <button mat-raised-button [routerLink]="['/count']">User Count</button>
+        <button mat-flat-button [routerLink]="['/']" [color]="router?.url === '/' ? 'primary' : 'default'">Home</button>
+        <button mat-flat-button [routerLink]="['/count']" [color]="router?.url === '/count' ? 'primary' : 'default'">User Count</button>
+        <button mat-flat-button [routerLink]="['/clicks']" [color]="router?.url === '/clicks' ? 'primary' : 'default'">User Engagement</button>
       </mat-toolbar-row>
     </mat-toolbar>
     <section class="graphs">
@@ -35,13 +36,18 @@ import { UsersCount } from "./models";
       .graphs {
         flex-grow: 1;
       }
+      button {
+        margin-right: 0.5rem;
+      }
     `
   ]
 })
 export class AppComponent {
-  usersCount: Observable<UsersCount>;
+  constructor(private _data: DataService, public router: Router) {
+    
+  }
 
-  constructor(private _data: DataService) {
-    this.usersCount = this._data.usersCount;
+  ngOnChanges() {
+    console.log(this.router.url);
   }
 }

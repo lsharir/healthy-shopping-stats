@@ -1,0 +1,20 @@
+<section class="view">
+  <ngx-charts-bar-vertical-2d
+    [view]="view | async"
+    [scheme]="colorScheme"
+    [results]="usersEngagement | async"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Users Type'"
+    [yAxisLabel]="'Count'"
+    [showGridLines]="true"
+    [barPadding]="16"
+    [groupPadding]="16"
+    [showDataLabel]="true"
+    [trimXAxisTicks]="true"
+    [trimYAxisTicks]="true">
+  </ngx-charts-bar-vertical-2d>
+</section>

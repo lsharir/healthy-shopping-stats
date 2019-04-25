@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { from, Observable, Subject } from 'rxjs';
+import { from, Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UsersCount } from './models';
+import { UsersCount, UsersEngagement } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ import { UsersCount } from './models';
 export class DataService {
   users: Observable<any[]>;
 
-  $usersCount = new Subject<UsersCount>();
+  $usersCount = new BehaviorSubject<UsersCount>(null);
+  $usersEngagement = new BehaviorSubject<UsersEngagement>(null);
 
   constructor(private _db: AngularFirestore) {
     this.users = from(
@@ -21,16 +22,16 @@ export class DataService {
 
     this.users.subscribe(users => {
       const usersCount = new UsersCount();
+      const usersEngagement = new UsersEngagement();
+
       users.forEach(u => {
         usersCount.count(u.type)
+        usersEngagement.process(u.type, u.clicks);
       });
 
       this.$usersCount.next(usersCount);
+      this.$usersEngagement.next(usersEngagement);
     })
-  }
-
-  get usersCount(): Observable<UsersCount> {
-    return this.$usersCount;
   }
 
 }
