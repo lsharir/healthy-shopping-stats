@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --aot --base-href /https://lsharir.github.io/healthy-shopping-stats/ && angular-cli-ghpages -d dist/healthy-shopping-stats/"
+    "deploy": "ng build --prod --aot --base-href /healthy-shopping-stats/ && angular-cli-ghpages -d dist/healthy-shopping-stats/"
   },
   "private": true,
   "dependencies": {
